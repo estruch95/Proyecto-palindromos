@@ -17,6 +17,7 @@ public class Main {
 		for(int a=0; a<palabras.length; a++){
 			EsCapicua threadCapicua = new EsCapicua(palabras[a]);
 			threadPool.execute(threadCapicua);
+			System.out.println("Encuats"+threadPool.getQueue().size()+"/"+a);
 		}
 	}
 }
