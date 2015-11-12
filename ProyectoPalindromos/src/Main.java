@@ -13,9 +13,10 @@ public class Main {
 		String palabras[] = new String[]{"ADA", "Jose", "melon", "Adrian", "David", "sal", "Toni", "Jorge", "Luís",
 		"Magaña", "Araujo", "manzana", "ciruelo", "casa", "hola", "DAM", "developer",
 		"preguntas", "contestaciones", "sandía", "ALA", "Gandia", "motocicleta", "Manolo", "SOMOS"};
-		//Creación del thread
-		EsCapicua threadCapicua = new EsCapicua(palabras);
-		//Ejecución del thredPool
-		threadPool.execute(threadCapicua);
+		
+		for(int a=0; a<palabras.length; a++){
+			EsCapicua threadCapicua = new EsCapicua(palabras[a]);
+			threadPool.execute(threadCapicua);
+		}
 	}
 }

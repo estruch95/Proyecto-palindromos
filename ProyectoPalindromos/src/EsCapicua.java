@@ -1,25 +1,28 @@
 
 public class EsCapicua implements Runnable{
 	//Atributos de la clase
-	private String palabras[];
+	private String palabra;
 
-	public EsCapicua(String palabras[]) {
+	public EsCapicua(String palabra) {
 		// TODO Auto-generated constructor stub
 		//Constructor y declaración de atributos de la clase
-		this.palabras = palabras;
+		this.palabra = palabra;
 	}
 
 	//Método RUN del thread
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		for(int a=0; a<palabras.length; a++){
-			espalindromo(palabras[a]);
-		}	
+		if(espalindromo(palabra)){
+			System.out.println("La palabra "+palabra+" es un palíndromo");
+		}
+		else{
+			System.out.println("La palabra "+palabra+" no es un palíndromo");
+		}
 	}
 	
 	//Método encargado de comprobar si la palabra recibida por parámetro es palíndromo
-	public void espalindromo(String cadena){
+	public boolean espalindromo(String cadena){
 	    boolean valor=true;
 	    int i,ind;    
 	    String cadena2="";
@@ -46,12 +49,6 @@ public class EsCapicua implements Runnable{
 		       }
 		       ind--;
 		    }
-		    
-		    if(valor == false){
-		    	System.out.println(cadena+": No es un palíndromo");
-		    }
-		    else{
-		    	System.out.println(cadena+": Es un palíndromo");
-		    }
+		    return valor;
 	}
 }
